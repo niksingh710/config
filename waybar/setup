@@ -1,0 +1,34 @@
+#!/bin/bash
+
+loc="$(dirname $(realpath ${BASH_SOURCE:-0}))"
+config="$HOME/.config/waybar"
+normal="\e[0m"
+invert="\e[41m"
+
+err(){
+  echo -e "$invert Err:$normal $@"
+}
+
+check(){
+  hash waybar 2>/dev/null || {
+    err "Make sure waybar is installed"
+    exit 1
+  }
+  [ -d "$config" ] && {
+    err "Already a config is there!! Would you like to remove that?"
+  
+    read -p "Are you sure? [y/N]: " -n 1 -r
+    echo ""
+    [[ $REPLY =~ ^[Yy]$ ]] && {
+      rm -rf "$config" 
+    } || exit 1
+  }
+}
+
+echo -e "\e[7m Setting up waybar ...$normal\n"
+
+check
+
+echo "Linking the waybar directory in $config"
+ln -sf "$loc" "$config"
+

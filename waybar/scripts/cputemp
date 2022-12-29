@@ -1,0 +1,20 @@
+#!/bin/bash
+
+hash sensors 2>/dev/null || exit
+
+data="$(sensors coretemp-isa-0000 | sed 's/+//g')"
+package="$(echo "$data" | awk -e '/Package/ {print $4}')"
+coretemp="$(echo "$data" | awk -e '/Core/ {print $3}')"
+
+tooltip="<b> Core Temp </b>\n\n"
+
+j=0
+for i in $coretemp
+do
+  tooltip+="Core $j: $i\n"
+  ((j=j+1))
+done
+cat << EOF
+{"text":"$package","tooltip":"$tooltip",}
+EOF
+
