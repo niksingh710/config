@@ -1,1 +1,7 @@
-./waybar/scripts/colpicker/colors
+waybar/scripts/colpicker/colors
+wpg/sequences 
+wpg/samples/
+wpg/schemes/
+systemd/user/sockets.target.wants
+systemd/user/multi-user.target.wants
+systemd/user/default.target.wants

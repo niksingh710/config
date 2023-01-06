@@ -6,7 +6,7 @@ data="$(sensors coretemp-isa-0000 | sed 's/+//g')"
 package="$(echo "$data" | awk -e '/Package/ {print $4}')"
 coretemp="$(echo "$data" | awk -e '/Core/ {print $3}')"
 
-tooltip="<b> Core Temp </b>\n\n"
+tooltip="<b> Core Temp: $package </b>\n\n"
 
 j=0
 for i in $coretemp

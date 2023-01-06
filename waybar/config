@@ -93,7 +93,8 @@
   "custom/updates": {
     "format": "{}  ",
     "interval": 3600,                     // every hour
-    "exec": "checkupdates | wc -l",       // # of updates
+    "exec": "~/.config/waybar/scripts/updates/updatecheck",       // # of updates
+    "return-type": "json",
     "exec-if": "exit 0",                  // always run; consider advanced run conditions
     "signal": 8
   },
@@ -114,18 +115,18 @@
     "format-charging": "<b>{icon} </b>", 
     "format-full": "<span color='#00ff00'><b>{icon}</b></span>",
     //"format-icons": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
-    "format-icons": ["", "", "", "", "", "", "" ],
+    "format-icons": [ "", "", "", "", "", "", "", "", "" ],
     "tooltip-format": "{time} {capacity} % | {power} W"
   },
+  "cpu": {
+    "format": "[ {usage}% ",
+    "on-click": "~/bin/term btop"
+  },
   "custom/cputemp": {
-    "format": "{}",
+    "format": "{} ]",
     "exec": "~/.config/waybar/scripts/cputemp",
     "interval": 5,
     "return-type": "json",
-  },
-  "cpu": {
-    "format": "{usage}% ",
-    "on-click": "~/bin/term btop"
   },
   "memory": {
     "format": "{}% "
@@ -140,7 +141,7 @@
   },
   "disk": {
     "interval": 30,
-    "format": " {percentage_used}% ",
+    "format": " {percentage_used}% ",
     "path": "/"
   },
 "network": {
@@ -156,9 +157,9 @@
     "on-click": "networkmanager_dmenu"
   },
  "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon}",
-    "format-muted": "",
+    "format": "[ {volume}% {icon}",
+    "format-bluetooth": "[ {volume}% {icon}",
+    "format-muted": "[ ",
     "format-icons": {
       "headphones": "",
       "handsfree": "",
@@ -172,7 +173,7 @@
   },
   "pulseaudio#mic": {
     "format": "{format_source}",
-    "format-source": "{volume}% ",
+    "format-source": "{volume}%  ]",
     "format-source-muted": "",
     "on-click": "pactl set-source-mute 0 toggle",
     "on-scroll-up": "pactl set-source-volume 0 -1%",
@@ -182,7 +183,7 @@
   "format-on": "",
   "format-off": "",
   "format-disabled": "",
-  "format-connected": "<b> {device_alias}</b>",
+  "format-connected": "<b>[  {device_alias} ]</b>",
   "format-connected-battery": " {device_alias} {device_battery_percentage}%",
   "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
   "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",

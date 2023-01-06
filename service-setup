@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# This script will ensure all services in system.
+
+# This service is for arch linux to make sure my device suspend correctly
+
+[ $(ps -p 1 -o comm=) = "systemd" ] || exit
+[ "$ID" = "arch" ] && {
+  systemctl --user enable --now suspend-fix@.service
+}
+hash pipewire 2>/dev/null && systemctl --user enable --now pipewire.service
+
+[ "$(whoami)" != "root" ] && {
+  read -p "Are you sure? [y/N]: " -n 1 -r
+  [[ $REPLY =~ ^[Yy]$ ]] && {
+    exec sudo -- "$0" "$@"
+  } || {
+    exit
+  }
+}
+
+[ "$ID" = "arch" ] && {
+  sudo systemctl enable --now fstrim.timer
+  sudo systemctl enable --now reflector.timer
+}
+
+sudo systemctl enable --now networkmanager
+sudo systemctl enable --now bluetooth

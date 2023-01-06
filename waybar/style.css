@@ -5,13 +5,15 @@
   font-family: "Comic Code Ligatures";
   font-size: 13px;
   min-height: 0;
-  padding: 0px 4px;
+  padding: 0px 5px;
 }
 
 window#waybar {
     /* background: transparent; */
-  background: alpha(@background,.6);
+  background: alpha(@background,.2);
   color: @foreground;
+  border-radius: 5px;
+  border: solid 2px alpha(@active,.6);
 }
 
 #window {
@@ -148,7 +150,7 @@ window#waybar {
   font-size: 20px;
   font-weight: 800;
   /* padding: 0px 4px; */
-  color: @active;
+  color: @foreground;
 }
 
 #custom-vpn {

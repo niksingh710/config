@@ -1,0 +1,51 @@
+#!/bin/bash
+
+loc="$(dirname $(realpath ${BASH_SOURCE:-0}))"
+config="$HOME/.config"
+normal="\e[0m"
+invert="\e[41m"
+
+link(){
+  [ -d "$2" ] && {
+    rm -rf "$2"
+  }
+  ln -sf "$1" "$2"
+}
+
+err(){
+  echo -e "$invert Err:$normal $*"
+}
+
+msg(){
+  echo -e "\e[7m Setting up $1 ...$normal"
+}
+msg waybar
+link "$loc/waybar" "$config/waybar"
+msg mako # notification utils
+link "$loc/mako" "$config/mako"
+msg rofi
+link "$loc/rofi" "$config/rofi"
+msg networkmanager_dmenu
+link "$loc/networkmanager_dmenu" "$config/networkmanager_dmenu"
+msg foot
+link "$loc/foot" "$config/foot"
+msg sys
+link "$loc/sys" "$config/sys"
+msg btop
+link "$loc/btop" "$config/btop"
+msg wlogout
+link "$loc/wlogout" "$config/wlogout"
+msg zathura
+link "$loc/zathura" "$config/zathura"
+msg udiskie
+link "$loc/udiskie" "$config/udiskie"
+msg hypr
+link "$loc/hypr" "$config/hypr"
+msg pistol
+link "$loc/pistol" "$config/pistol"
+msg systemd
+link "$loc/systemd" "$config/systemd"
+
+msg wpg
+link "$loc/wpg" "$config/wpg"
+
