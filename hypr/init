@@ -5,17 +5,17 @@
 }
 
 hyprctl dispatch focuswindow foot
+hyprctl setcursor "GoogleDot-Black" 24 
+gnome-settings(){
+  gnomeschema="org.gnome.desktop.interface"
 
-# gnome-settings(){
-#   gnomeschema="org.gnome.desktop.interface"
+  gsettings set "$gnomeschema" gtk-theme 'FlatColor'
+  gsettings set "$gnomeschema" icon-theme 'la-capitaine'
+  gsettings set "$gnomeschema" cursor-theme 'GoogleDot-Black'
+  gsettings set "$gnomeschema" font-name 'Comic Code Ligatures'
+}
 
-#   gsettings set "$gnomeschema" gtk-theme 'FlatColor'
-#   gsettings set "$gnomeschema" icon-theme 'la-capitaine'
-#   gsettings set "$gnomeschema" cursor-theme 'GoogleDot-Black'
-#   gsettings set "$gnomeschema" font-name 'Comic Code Ligatures'
-# }
-
-# gnome-settings
+gnome-settings
 #[ -f "$HOME"/binaries/utils/idle ] && "$HOME"/binaries/utils/idle
 #[ -f "$HOME"/binaries/utils/wbar ] && "$HOME"/binaries/utils/wbar
 #[ -f "$HOME"/binaries/hypr/ui ] && "$HOME"/binaries/hypr/ui

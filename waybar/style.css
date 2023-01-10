@@ -8,6 +8,13 @@
   padding: 0px 5px;
 }
 
+tooltip {
+  background: alpha(@active,.8);
+  border-radius: 10px;
+  padding: 0px;
+  margin: 0px;
+}
+
 window#waybar {
     /* background: transparent; */
   background: alpha(@background,.2);
@@ -53,7 +60,7 @@ window#waybar {
     font-weight: bold;
 }
 
-#battery {
+#battery, #custom-batterysaver {
   color: @color6;
 }
 

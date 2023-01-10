@@ -5,10 +5,11 @@
 # Using this for <Lenovo ThinkBook 14 iml> as a user service in arch linux to make suspend possible.
 
 arr=("XHC" "RP03" "RP05" "RP09" "RP11" "RP13")
-
+rootmgr="sudo"
+hash doas 2>/dev/null && rootmgr="doas"
 for device in ${arr[@]}
 do
-    if grep -qw ^$device.*enabled /proc/acpi/wakeup; then
-        sudo sh -c "echo $device > /proc/acpi/wakeup"
-    fi
+  if grep -qw ^$device.*enabled /proc/acpi/wakeup; then
+    $rootmgr sh -c "echo $device > /proc/acpi/wakeup"
+  fi
 done

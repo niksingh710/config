@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-hash waybar &2>/dev/null && {
-  killall -q waybar
-  waybar 
-} || return 1
