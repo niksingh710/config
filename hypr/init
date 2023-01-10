@@ -8,8 +8,9 @@ hyprctl dispatch focuswindow foot
 hyprctl setcursor "GoogleDot-Black" 24 
 gnome-settings(){
   gnomeschema="org.gnome.desktop.interface"
-
-  gsettings set "$gnomeschema" gtk-theme 'FlatColor'
+  theme="FlatColor"
+  [ -d "$HOME/.themes/oomix-nik-theme" ] && theme="oomix-nik-theme"
+  gsettings set "$gnomeschema" gtk-theme "$theme"
   gsettings set "$gnomeschema" icon-theme 'la-capitaine'
   gsettings set "$gnomeschema" cursor-theme 'GoogleDot-Black'
   gsettings set "$gnomeschema" font-name 'Comic Code Ligatures'

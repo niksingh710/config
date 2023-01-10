@@ -1,0 +1,16 @@
+BG={background}
+FG={foreground}
+MENU_BG={background}
+MENU_FG={foreground}
+SEL_BG={color1}
+SEL_FG={color0}
+TXT_BG={color0}
+TXT_FG={color7}
+BTN_BG={color2}
+BTN_FG={color7}
+HDR_BTN_BG={color3}
+HDR_BTN_FG={color7}
+GTK3_GENERATE_DARK=True
+ROUNDNESS=16
+SPACING=3
+GRADIENT=0.0
