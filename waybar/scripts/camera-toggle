@@ -4,10 +4,10 @@ hash doas 2>/dev/null && rootmgr="doas"
 state="$(lsmod | grep uvcvideo)"
 
 [ -z "$state" ] && {
-  notify-send "Enabling camera module: uncvideo" "If fails to work check root permissions"
-  $rootmgr modprobe -a uvcvideo
+	notify-send "Enabling camera module: uncvideo" "If fails to work check root permissions"
+	$rootmgr modprobe -a uvcvideo
 } || {
-  notify-send "Disabling camera module: uncvideo" "If fails to work check root permissions"
-  $rootmgr rmmod -f uvcvideo
+	notify-send "Disabling camera module: uncvideo" "If fails to work check root permissions"
+	$rootmgr rmmod -f uvcvideo
 }
 pkill -RTMIN+19 waybar

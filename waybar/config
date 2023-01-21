@@ -35,7 +35,6 @@
       "activated": "",
       "deactivated": ""
     },
-    "signal": 4,
     /* "timeout": 30.5 */
   },
   "hyprland/window": {
@@ -140,8 +139,9 @@
   },
   "custom/cputemp": {
     "format": "{} ]",
+    // "format-icons" : [ "", "", "", "", "" ] ,
     "exec": "~/.config/waybar/scripts/cputemp",
-    "interval": 5,
+    "interval": 10,
     "return-type": "json",
   },
   "memory": {
@@ -156,7 +156,7 @@
    "on-scroll-down": "~/bin/brightness down",
   },
   "disk": {
-    "interval": 30,
+    "interval": 600,
     "format": " {percentage_used}% ",
     "path": "/"
   },

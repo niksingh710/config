@@ -13,7 +13,7 @@ gnome-settings(){
   gsettings set "$gnomeschema" gtk-theme "$theme"
   gsettings set "$gnomeschema" icon-theme 'la-capitaine'
   gsettings set "$gnomeschema" cursor-theme 'GoogleDot-Black'
-  gsettings set "$gnomeschema" font-name 'Comic Code Ligatures'
+  gsettings set "$gnomeschema" font-name 'Comic Code Ligatures Nerd Font'
 }
 
 gnome-settings

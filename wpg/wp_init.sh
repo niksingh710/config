@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-wpg -nrs '/home/niksingh710/Pictures/mywalls//night-snowing.jpg' '/home/niksingh710/Pictures/mywalls//night-snowing.jpg'
+wpg -nrs '/home/niksingh710/Pictures/mywalls/byrotek-mountain-view.png' '/home/niksingh710/Pictures/mywalls/byrotek-mountain-view.png'

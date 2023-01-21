@@ -8,13 +8,19 @@ coretemp="$(echo "$data" | awk -e '/Core/ {print $3}')"
 
 tooltip="<b> Core Temp: $package </b>\n\n"
 
-j=0
-for i in $coretemp
-do
-  tooltip+="Core $j: $i\n"
-  ((j=j+1))
-done
-cat << EOF
-{"text":"$package","tooltip":"$tooltip",}
-EOF
+# "format-icons" : [ "", "", "", "", "" ] ,
+tempint=${package%.*}
+icon="<span color='#0000ff'></span>"
+[ $tempint -gt 60 ] && icon="<span color='#00ffff'></span>"
+[ $tempint -gt 70 ] && icon="<span color='#00ff00'></span>"
+[ $tempint -gt 85 ] && icon="<span color='#ffff00'></span>"
+[ $tempint -gt 95 ] && icon="<span color='#ff0000'></span>"
 
+j=0
+for i in $coretemp; do
+	tooltip+="Core $j: $i\n"
+	((j = j + 1))
+done
+cat <<EOF
+{"text":"$package $icon","tooltip":"$tooltip",}
+EOF
